@@ -1,0 +1,73 @@
+gb@MainMac ~ % python -V
+Python 3.10.0
+gb@MainMac ~ % python
+Python 3.10.0 (v3.10.0:b494f5935c, Oct  4 2021, 14:59:20) [Clang 12.0.5 (clang-1205.0.22.11)] on darwin
+Type "help", "copyright", "credits" or "license" for more information.
+>>> print("roar")
+roar
+>>> exit();
+gb@MainMac ~ % pip list
+Package    Version
+---------- ---------
+certifi    2021.10.8
+pip        22.0.4
+PyMySQL    1.0.2
+setuptools 58.1.0
+WARNING: You are using pip version 22.0.4; however, version 22.1.2 is available.
+You should consider upgrading via the '/usr/local/bin/python3.10 -m pip install --upgrade pip' command.
+gb@MainMac ~ % pip install --upgrade pip
+Requirement already satisfied: pip in /Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/site-packages (22.0.4)
+Collecting pip
+  Using cached pip-22.1.2-py3-none-any.whl (2.1 MB)
+Installing collected packages: pip
+  Attempting uninstall: pip
+    Found existing installation: pip 22.0.4
+    Uninstalling pip-22.0.4:
+      Successfully uninstalled pip-22.0.4
+Successfully installed pip-22.1.2
+gb@MainMac ~ % pip list
+Package    Version
+---------- ---------
+certifi    2021.10.8
+pip        22.1.2
+PyMySQL    1.0.2
+setuptools 58.1.0
+gb@MainMac ~ % pip --version
+pip 22.1.2 from /Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/site-packages/pip (python 3.10)
+gb@MainMac ~ % pip install tk 
+Collecting tk
+  Using cached tk-0.1.0-py3-none-any.whl (3.9 kB)
+Installing collected packages: tk
+Successfully installed tk-0.1.0
+gb@MainMac ~ % pip install tkVideo
+Collecting tkVideo
+  Using cached tkVideo-0.1-py3-none-any.whl (4.7 kB)
+Collecting imageio
+  Using cached imageio-2.19.3-py3-none-any.whl (3.4 MB)
+Collecting pillow
+  Using cached Pillow-9.1.1-cp310-cp310-macosx_10_10_x86_64.whl (3.1 MB)
+Collecting imageio-ffmpeg
+  Using cached imageio_ffmpeg-0.4.7-py3-none-macosx_10_9_intel.macosx_10_9_x86_64.macosx_10_10_intel.macosx_10_10_x86_64.whl (22.5 MB)
+Collecting numpy
+  Using cached numpy-1.23.0-cp310-cp310-macosx_10_9_x86_64.whl (18.1 MB)
+Installing collected packages: pillow, numpy, imageio-ffmpeg, imageio, tkVideo
+Successfully installed imageio-2.19.3 imageio-ffmpeg-0.4.7 numpy-1.23.0 pillow-9.1.1 tkVideo-0.1
+gb@MainMac ~ % pip install Pillow
+Requirement already satisfied: Pillow in /Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/site-packages (9.1.1)
+gb@MainMac ~ % pip install pymediainfo
+Collecting pymediainfo
+  Using cached pymediainfo-5.1.0-py3-none-macosx_10_9_x86_64.whl (6.4 MB)
+Installing collected packages: pymediainfo
+Successfully installed pymediainfo-5.1.0
+gb@MainMac ~ % pip install mysql-connector-python
+Collecting mysql-connector-python
+  Downloading mysql_connector_python-8.0.29-cp310-cp310-macosx_11_0_x86_64.whl (5.0 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 5.0/5.0 MB 4.5 MB/s eta 0:00:00
+Collecting protobuf>=3.0.0
+  Downloading protobuf-4.21.2-cp37-abi3-macosx_10_9_universal2.whl (483 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 483.1/483.1 kB 4.2 MB/s eta 0:00:00
+Installing collected packages: protobuf, mysql-connector-python
+Successfully installed mysql-connector-python-8.0.29 protobuf-4.21.2
+gb@MainMac ~ % pip install pillow                
+Requirement already satisfied: pillow in /Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/site-packages (9.1.1)
+gb@MainMac ~ % 

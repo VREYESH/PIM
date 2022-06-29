@@ -1,0 +1,119 @@
+<ead> 
+	<eadheader audience="internal" countryencoding="iso3166-1"
+	dateencoding="iso8601" langencoding="iso639-2" 
+	repositoryencoding="iso15511">
+
+	<eadid countrycode="us" mainagencycode="XXXX">
+		###FILE.xml
+	</eadid> 
+	<filedesc>
+		<titlestmt> 
+			<titleproper>[ORG/PERSON NAME]
+			</titleproper> 
+			<subtitle>An inventory of [TITLE] at [ORG]</subtitle> 
+			<author>Finding aid prepared by [YOU]</author>
+			<sponsor>[ORG HERE]</sponsor>
+		</titlestmt> 
+		<publicationstmt>
+			<publisher encodinganalog="Publisher">[ORG or YOU]</publlisher>
+			<address>
+				<addressline>[YOURPLACE]</addressline> 
+			</address> 
+		</publicationstmt>
+
+		<seriesstmt>
+			<p>[NAME OF YOUR COLLECTION</p>
+		</seriesstmt>
+	</filedesc> 
+	
+	<profiledesc>
+		<creation>Finding aid encoded by [NAME]
+			<date>[GEN DATE]</date> 
+		</creation>
+		<langusage>Finding aid written in
+			<language langcode="eng">English</language>, and 
+			<language langcode="fre">French</language>
+		</langusage> 
+	</profiledesc>
+
+	<revisiondesc>
+		<change>
+			<date></date>
+			<item>[REASON FOR CHANGE]</item>
+		</change>
+	</revisiondesc>
+
+	</eadheader> 
+	<archdesc>
+
+	<did>
+		<unitid></unitid> 
+		<repository></repository>
+		<origination> 
+			<corpnane> </corpname> 
+		</origination> 
+		<unittitle> </unittitle>
+		<unitdate> </unitdate>
+		<langmaterial> 
+			<language>
+			</language> 
+		</langmaterial> 
+	
+		<abstract>[NOTES]</abstract>
+		<physdesc>Webpage</physdesc>
+		<physloc> </physloc> 
+	</did>
+
+	<descgrp type="admininfo"> 
+		<prefercite></prefercite> 
+		<acqinfo></acqinfo>
+	</descgrp> 
+	<dsc>
+	<c01></c01> 
+	<did>
+		<physloc>[FILENAME]</physloc> 
+		<container></container> 
+		<unittitle> </unittitle> 
+		<unitdate> </unitdate> 
+		<physdesc> </physdesc>
+	</did> 
+
+	</dsc> 
+	</archdesc>
+
+	<controlaccess>
+		<subject>
+			<part>[SUBJECT HERE]</part>
+		</subject>
+	</controlaccess>
+
+	<control>
+		<recordid>[RECNO]</recordid>
+		<filedesc>
+			<titlestmt>
+				<titleproper>[. some thing ? ]</titleproper>
+			</titlestmt>
+			<editionstmt>
+				<edition>1st</edition>
+				<publicationstmt>
+					<publisher>YOU</publisher>
+				<publicationstmt>
+		</filedesc>
+
+		<notestmt>
+		<controlnote>
+			<p>Contact information:
+				<ref show="new" actuate="onrequest" href="http://hdl.loc.gov/loc.mss/mss.contact">
+http://hdl.loc.gov/loc.mss/mss.contact
+				</ref>
+			</p>
+		</controlnote>
+		<controlnote>
+			<p>Catalog Record:
+				<ref href="" actuate="onrequest" 
+				linktitle="MARC record for collection"></ref>
+			</p>
+		</controlnote>
+		</notestmt>
+
+</ead>

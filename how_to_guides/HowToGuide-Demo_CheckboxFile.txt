@@ -1,0 +1,111 @@
+START_GROUP
+Famous Sailors and Ships:
+Bluebeard
+David Lawrence
+Esek Hopkins
+John Paul Jones
+Sloop Gaspée
+USS Congress
+USS Constitution
+USS President
+END_GROUP
+START_GROUP
+Maine Harbors and Places:
+Bangor
+Bar Harbor
+Bath
+Boothbay
+Calais
+Camden
+Cutler
+Georges Banks
+Grand Banks
+Isle au Haut
+Kennebunkport
+Limestone
+Portland
+Rockport
+Saco
+Seaports
+Searsport
+Winter
+Yarmouth
+Other Harbor
+END_GROUP
+START_GROUP
+Ship Types:
+Aircraft Carrier
+Amphibious
+Barque
+Barquentine
+Batteau
+Battleship
+Blockade runner
+Brig
+Brigantine
+Catboat
+Catamaran
+Clipper
+Collier
+Corvette
+Cruise ship
+Cruiser
+Destroyer
+Dinghy
+Dory
+Fire ship
+Ferry
+Frigate
+Galliot
+Gunboat
+Indiaman
+Ironclad
+Landing Ship
+Liberty ship
+Lifeboat
+Littoral
+Lobster Boat
+Longship
+Man-of-war
+Merchant raider
+Merchantman
+Military ship
+Monitor
+Motor vessel
+Ocean liner
+Packet
+Paddle steamer
+Pinnace
+Pram
+Royal Mail Ship
+Schooner
+Settee
+Shallop
+Ship of the line
+Ship or full rigged ship
+Slave ship
+Sloop
+Snow
+Steamship
+Tramp steamer
+Troopship
+Victory ship
+Whaler
+Yacht
+END_GROUP
+START_GROUP
+Seamen:
+Boatswain
+Capitan
+Chandlers
+Crew
+Fisherman
+Flag Officer
+Gunner
+Lieutenant
+Lobsterman
+Longshoreman
+Midshipman
+Pilot
+Other Crew
+END_GROUP

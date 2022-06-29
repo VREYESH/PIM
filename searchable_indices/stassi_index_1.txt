@@ -1,0 +1,14 @@
+/Users/gb/Documents/pim/demo_images/schooner_501786.jpg	Sloop	Snow	Flags	
+/Users/gb/Documents/pim/demo_images/whaler.jpg	USS_Constitution	
+/Users/gb/Documents/pim/demo_images/ship2.jpg	Cutler	
+/Users/gb/Documents/pim/demo_images/1.jpg.webp	Sloop_Gaspée	Schooner	Sloop	
+/Users/gb/Documents/pim/demo_images/1.jpg.webp	Sloop_Gaspée	
+/Users/gb/Documents/pim/demo_images/9.jpg	Sloop	
+/Users/gb/Documents/pim/demo_images/14.jpg.webp	Lobster_Boat	Lobsterman	
+/Users/gb/Documents/pim/demo_images_2/mattdamon-tongue.jpg	Bluebeard	
+/Users/gb/Documents/pim/demo_images/a2.jpg	Bluebeard	
+/Users/gb/Documents/pim/demo_images/1.jpg.webp	Sloop_Gaspée	Sloop	
+/Users/gb/Documents/pim/demo_images/ship3_RI.jpg	Frigate	Full_rigged_ship	Man_of_war	
+/Users/gb/Documents/pim/demo_images/9.jpg	Barque	Brig	Schooner	Sloop	Snow	
+/Users/gb/Documents/pim/demo_images/whater2.jpg	Dinghy	Whaler	Fisherman	
+/Users/gb/Documents/pim/demo_images/10.jpg	Esek_Hopkins	Capitan	

@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>PIM Output</title>
+		<meta charset="utf-8"/>
+	
+<style>
+* {
+  box-sizing: border-box;
+}
+
+.flex-container {
+  display: flex;
+  flex-direction: row;
+  font-size: 30px;
+  text-align: center;
+}
+
+.flex-item-left {
+  /* background-color: #f1f1f1; */
+  padding: 10px;
+  flex: 50%;
+}
+
+.flex-item-right {
+  /* background-color: dodgerblue; */
+  padding: 10px;
+  flex: 50%;
+}
+
+/* Responsive layout - makes a one column-layout instead of two-column layout */
+@media (max-width: 800px) {
+  .flex-container {
+    flex-direction: column;
+  }
+}
+#imagePopUp {
+  text-align: center;
+  font-size:8px;
+  /* width:80%; */
+  width: auto;
+  height: auto;
+  z-index: 9;
+  position: fixed;
+  object-fit: scale-down;
+  top: 50%;
+  left: 50%;
+  overflow-y: auto;
+  transform: translate(-50%, -50%);
+  border: 1px solid;
+    border-radius: 3px;
+    padding: 10px;
+    box-shadow: 3px 5px 4px 5px #8f8f8f;
+	background-color: white;
+}
+#siteinfotop { 
+	position: absolute;
+	top: 25px;
+	left: 75%;
+}
+footer {
+	height: 14vh;
+	min-height: 50px;
+	font-size: 12px;
+	text-align: center;
+	line-height: 20px;
+	padding: 15px;
+	background-color: skyblue;
+	color: white;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+}
+.galleryNameFormat { 
+	font-family: "SF Pro Rounded", "Baskerville", "Avenir Next", sans-serif;
+}
+</style>
+<script>
+	var currentImageSrc = "";
+	function myFunction(imgNo) {
+	  var x = document.getElementById("imagePopUp");
+	  var y = document.getElementById("imageToShow");
+	  if (x.style.display === "none") {
+		  y.style.objectfit = "contain"; /* scale-down"; */
+		  y.src = currentImageSrc;
+		  x.style.display = "block";
+	  } else {
+		  x.style.display = "none";
+		  currentImageSrc = "";
+	  }
+	}
+	function myPopFunction(imgNo) {
+		var x = document.getElementById(imgNo);
+		currentImageSrc = x.src;
+		x.src = currentImageSrc;
+		document.getElementById("bl").innerHTML = currentImageSrc;
+		myFunction(imgNo);
+	}
+	function myUndoPopFunction(imgNo) {
+		currentImageSrc = ""
+		document.getElementById("imagePopUp").style.display = "none";
+	}
+	function closePopup() { 
+		document.getElementById("imagePopUp").style.display = "none";
+	}
+</script>
+</head>
+<body>
+	<div id="imagePopUp" style="display:none;" 
+	onclick="closePopup()"; >
+		<img id="imageToShow" />
+		<div class="bottom-left" id="bl">Bottom left</div>
+	</div>
+
+<!-- Header -->
+<div class="header">
+  <h1 class="galleryNameFormat" id='galleryName'>Responsive Image Gallery</h1>
+</div>
+<!-- end of file: htmlHeader8.txt --> 
+
+
+
+<div class="flex-container">
+	<div class="flex-item-left">
+	<img id="0" src="/Users/gb/Documents/pim/demo_images/1.jpg.webp" style="width:100%" onclick="myPopFunction(0)">
+</div> <!-- end left div -->
+<div class="flex-item-right">
+	<img id="1" src="/Users/gb/Documents/pim/demo_images/14.jpg.webp" style="width:100%" onclick="myPopFunction(1)">
+	</div> <!-- end right div -->
+</div> <!-- end flex-container div -->
+
+<div class="flex-container">
+	<div class="flex-item-left">
+	<img id="2" src="/Users/gb/Documents/pim/demo_images_2/mattdamon-tongue.jpg" style="width:100%" onclick="myPopFunction(2)">
+</div> <!-- end left div -->
+<div class="flex-item-right">
+	<img id="3" src="/Users/gb/Documents/pim/demo_images/a2.jpg" style="width:100%" onclick="myPopFunction(3)">
+	</div> <!-- end right div -->
+</div> <!-- end flex-container div -->
+
+<div class="flex-container">
+	<div class="flex-item-left">
+	<img id="4" src="/Users/gb/Documents/pim/demo_images/1.jpg.webp" style="width:100%" onclick="myPopFunction(4)">
+</div> <!-- end left div -->
+<div class="flex-item-right">
+	<img id="5" src="/Users/gb/Documents/pim/demo_images/ship3_RI.jpg" style="width:100%" onclick="myPopFunction(5)">
+	</div> <!-- end right div -->
+</div> <!-- end flex-container div -->
+
+<div class="flex-container">
+	<div class="flex-item-left">
+	<img id="6" src="/Users/gb/Documents/pim/demo_images/9.jpg" style="width:100%" onclick="myPopFunction(6)">
+</div> <!-- end left div -->
+<div class="flex-item-right">
+	<img id="7" src="/Users/gb/Documents/pim/demo_images/whater2.jpg" style="width:100%" onclick="myPopFunction(7)">
+	</div> <!-- end right div -->
+</div> <!-- end flex-container div -->
+
+<div class="flex-container">
+	<div class="flex-item-left">
+	<img id="8" src="/Users/gb/Documents/pim/demo_images/10.jpg" style="width:100%" onclick="myPopFunction(8)">
+</div> <!-- end left div --><hr /><script>document.getElementById("galleryName").innerHTML = "DemoWebpage_1";</script><!-- htmlFooter8.txt -->
+<div style="height:125px;"><hr /></div>
+
+<style>
+a { border-bottom: 1px dotted #000;
+    text-decoration: none;
+	color: inherit;
+}
+</style>
+<footer>
+  <p>A tailorable personal-information-management cataloguer program.  
+  	<a href="aboutTheProgram.html" 
+  	target="new">Read about the project</a><br>
+  	<a href="mailto:gb@bix.digital">gb@bix.digital</a>.  <span id="datetimestamp"></span>
+  </p>
+</footer>
+<script>
+	document.getElementById("datetimestamp").innerHTML = "Page generated on "+new Date();
+</script>
+</body>
+</html>

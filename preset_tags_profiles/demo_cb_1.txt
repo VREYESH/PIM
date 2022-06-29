@@ -1,0 +1,47 @@
+START_GROUP
+People:
+Anthony
+Clarks
+David
+Gerry
+Jason
+Jim
+Lynne
+Nancy
+Pete
+Sue
+END_GROUP
+START_GROUP
+Places:
+Antibes
+Block Island
+Boston
+California
+Denmark
+Florida
+France
+Germany
+Italy
+London
+Monterey
+Newport
+Ogunquit
+Paris
+Rhode Island
+Rome
+Scituate
+Sweden
+END_GROUP
+START_GROUP
+Image Types:
+Boats
+Cemeteries
+Colonial Buildings
+Fireworks
+Flowers
+Landscapes
+Modern Architecture
+Seascapes
+Urban Views
+Woods
+END_GROUP

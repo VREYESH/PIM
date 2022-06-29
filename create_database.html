@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+@font-face {
+	font-family: San_Francisco;
+	font-weight: normal;
+	src: url(sanfranciscodisplay-regular-webfont.woff);
+}
+body { padding: 25px;
+	font-family: San_Francisco, BlinkMacSystemFont, sans-serif; 
+	background-color: #F7F7F7;}
+p {  font-family: San_Francisco, -apple-system, BlinkMacSystemFont, sans-serif;
+	font-size: 1.75vw; 
+	line-height:2em;
+	margin-left: 25px;
+}
+/* p { font-family: "SFNSRounded.ttf"; font-size: 1.25vw; } */
+.headline { color: #1A2238; }
+li { font-family: -apple-system, "San_Francisco", BlinkMacSystemFont, sans-serif; color: #1A2238; 
+	line-height:2em;}
+h1 {   font-family: -apple-system, "San_Francisco", BlinkMacSystemFont, sans-serif;
+	font-size: 1.75vw; background-color: #1A2238; color: white; padding:14px; 
+	border-radius:4px; margin-left: -20px; }
+	
+.section { border-radius: 4px; padding: 8px; margin-left: 10px; font-family: inherit; background-color: #9DAAF2; }
+tr:nth-child(even) {
+	background-color: #D6EEEE;
+}
+pre { line-height: 1.25em; }
+code {
+	font-size: 1.5vw; 
+	 border-style: solid;
+	 border-width: 1px;
+	 border-color: maroon;
+	 background-color: #f5f5f5;
+	 padding-left: 5px;
+	 padding-right: 5px;
+	 padding-top: 2px;
+	 padding-bottom: 2px;
+	 border-radius:2px;
+	 font-family: monospace; 
+}
+pre { font-size: 1.5vw; }
+.review { 
+	font-family: "San_Francisco"; font-size: 1.75vw; background-color: #87CEFA; color:white;  	padding:14px; border-radius:4px; }
+blockquote { 
+	font-family: "San_Francisco";
+	background-color: rgb(245,246,253);
+	padding: 1.5vw;
+	line-height: 2.5vw;
+	padding-left: 15px; 
+	border-left-style: outset;
+	border-left-color: #F4DB7D;
+	border-left-width: 7px;
+	overflow: scroll;
+}
+.footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: rgba(231,254,255, 0.5);
+  color: black;
+  height: 20px;
+  font-size: .5vw;
+  text-align: center;
+}
+.mycode { padding: 10px; background-color: black; color: orange; font-family: monospace; border-radius:4px;margin-left: 10px;}
+.mycodeVar {  background-color: black; color: white; font-family: monospace;}
+</style>
+
+<h2>Database Management Course</h2>
+<p>©2022 G Benoît, <a href="gerald.benoit@sjsu.edu">email</a></p>
+<hr />
+
+<h1>Creating the Database</h1>
+<p><b style="color:red;">Read this entirely to understand the concepts before actually practicing the hands-on section.</b><br />Remember that the "database" here means the computing container that holds one or more tables.  It&rsquo;s the tables that hold the actual data.   There is only one active database open at a time.
+</p>
+<p><b>Create</b>:  The syntax is <code>CREATE DATABASE <i>databasename</i>;</code>.  The convention is to use all upper-case letters for commands and to use <i>italics</i> or &lt;<i>command</i>&gt; to indicate some variable, such as where you&rsquo;d add your own specific table names or other commands.</p>
+
+<p>You must have administrative rights on your computer.  <b>And</b> you must have admin rights over your database.  These are two different things!</p>
+
+<p>Note: to run a database software product like MySQL, we start two different mysql activities.  The first is called the <b>daemon</b> in Unix or a "Service" in Windows.  A daemon or service is software that runs in the background to listen for requests from the computer.  The request the sql daemon/sql service is listening for is our request to use MySQL.  If the daemon isn&rsquo;t started, our SQL commands will fail.  So, after starting the daemon/service, we start SQL.  Then we can issue commands to SQL.</p>
+
+<p>First, the big picture before we start ...</p>
+<ol>
+	<li>Start the SQL daemon/service on your machine.</li>
+	<li>Start MySQL application
+		<ul><li>We need to log in as <b>root</b> in order to have permissions to create a database and create tables.</li>
+			<li>We need also to have a <b>password for Sql</b>. </li>
+			<li>Write these down to have handy.  When you installed MySQL you were probably asked to create a user and a password.</li>
+		</ul>
+	</li>
+	<li>Once SQL is started, we&rsquo;ll choose which Database to open (some people say "workspace"); either way only one database can be used at a time.</li>
+	<li>Select the database (say our database is called "TouristSystem") using the command <code>USE</code>, e.g., <code>USE TouristSystem;</code>.  MySQL will confirm we have selected this database.</li>
+	<li>In this database, we&rsquo;ll create tables.</li>
+	<li>When we&rsquo;re done, quit SQL [using the <code>exit;</code> command]</li>
+	<li>And if you want, shut down your SQL daemon. [Some people prefer to keep the Daemon/Service running so whenever they start their computer, it is ready.</li>
+</ol>
+
+<h2>The SQL Daemon or SQL Service (Windows)</h2>
+<p>Overview: Starting MySQL in the terminal window Unix and Mac:</p>
+<p>There are several ways to start MySQL.  <br /><strong>Mac</strong>  For clarity&rsquo;s sake, I&rsquo;m going to navigate first to the folder (directory) where my copy of SQL is storted.  If you're using a Mac or Unix, on most setups, this will be <span style="font-family: monospace;">/usr/local/mysql</span>.   Then to start the command, we issue a command that starts the mysql script.  The command uses two "switches", <code>-u</code> (for user) and <code>-p</code> (for password, aka a "password challenge").  We want to log into MySQL as root so we can have full access over SQL.  The -p causes mysql to challenge us for our password.  Enter the password.  If you&rsquo;re successful a lot of data wfill be shown about your copy of mysql and then the prompt will change to the MySQL prompt.  Here you can enter SQL commands!  (Of course, we&rsquo;ll need to exit MySQL when we&rsquo;re done, entering the command <code>exit;</code> or <code>quit;</code> to return to the Terminal.</p>
+<p>Mac Users: you should have already installed the MySQL <u>System Preferences Panel</u>.  Use this panel to start/stop MySQL service/daemon on your computer.  You'll use the terminal window to issue SQL commands.<br />
+	Windows Users: when you installed MySQL (version 8 or later) you installed also a <u>Service</u>; use this application to start/stop MySQL Service on your computer.  You'll issue commands using the SQL Shell Window.
+	<blockquote>
+		<p>Mac users go to Preferences and find the MySQL icon.  Click to start.  Optionally, you can select "Start MySQL ... " if you plan to leave SQL running all the time.  [Usually I leave this selected when I&rsquo;m writing database systems &rsquo;cause I don&rsquo;t want to have to restart every time; otherwise I shut it off.]</p>
+		<p>&ldquo;Initialize Database&rdquo;:  Create a password <u>just for MySQL</u>.  
+		</p>
+		<p>Mac Users: Depending on what version of the operating system, you may see a "Legacy Loader" window.  That&rsquo;s okay - enter your system password (used when you log into your computer) and continue.</p>
+		<p>Now you&rsquo;ll see the red dots turn green to show your SQL server daemon is active and waiting.  <u>There are many ways</u> to start and run MySQL - in this case I'm using the Terminal window because we'll use the terminal window (Mac) or SQL Shell (Windows) and issue commands directly to SQL from these applications.</p>
+		<ol>
+			<li>Use your <b>terminal window</b> (Unix/Mac)</li>
+			<li><code>cd /usr/local/mysql</code> to make the MySQL home directory our starting point.</li>
+			<li>Now, log in as the root user: <code>./bin/mysql -u root -p</code>
+			<li>You'll be prompted for your MySQL password.  Enter it and you're ready to go.</li>
+		</ol>
+	</blockquote>
+<h2>Windows Users:  </h2>
+<blockquote>There are so many versions of Windows that it can be hard to identify exactly how to do some computing task in one&rsquo;s own computing environment.  Here are the "usual" directions for starting MySQL on Windows.  You may have to experiment on your own, search the net for your version of Windows and MySQL.  But in short ... <br />
+	<ol>
+		<li>Start the MySQL server (for version 8) by searching for "Services".  Then you'll see a panel with a lot of options.</li>
+		<li>Scroll down 'til you find the MySQL8 option.</li>
+		<li>Click on it and you'll see "Start" link on the left of the panel.  Click it and you're all set.</li>
+			<li>You can stop the MySQL Service by clicking on Stop.
+		<li>You issue commands in the MySQL Shell Window.</li>
+		<li>Logging into SQL on Windows:   You need the username and password you created when installing MySQL.  In this example, the user name is "suky" and the password is "catfood":
+<pre>
+\c mysql suky@localhost:3306 --password="catfood"
+</pre>
+<blockquote style="background-color:olive;color:white;">Note!  Please see the images down below for Windows.  Different versions of Windows along with different versions of MySQL mean there are different techniques for setting up Windows.  This version was tested a lot using Windows 10 and MySQL 8.</blockquote>
+		<br />Notice we specify "localhost" as if it were a URL.  The 3306 is the <u>port</u> that the MySQL daemon/service listens too - meaning any commands that enter your computer from that port will be passed to MySQL for processing.  What is meant by "port"?  Back in the day, the wires/pins in the cables connecting computers were numbered.  Of course we can't have thousands of wires in a cable so ports became virtual.  For example web servers listen to port 80 to capture web page requests; SQL servers listen to port 3306.</li>
+		<li>Note: usually MySQL installs in this way <code>C:\Program Files\MySQL\MySQL Server 8.0\bin\</code>.  If the above start method didn&rsquo;t work, navigate to that folder and then use the <code>mysqld</code> command.</li></ol>
+</blockquote>
+<p>Starting the MySQL Service on Windows:
+	<br />
+	On Windows, start the "Services" panel<br />
+	<img style="width:500px;" src="images/win-mysql-1.jpg"/>
+	<br />
+	Next, locate the service for MySQL<br />
+	<img style="width:500px;"  src="images/win-mysql-2.png"/>
+	<br />
+	<img style="width:500px;"  src="images/win-mysql-3.png"/>
+	<br />
+	<img  style="width:500px;" src="images/win-mysql-4.png"/>
+</p>
+<p>Once you've started the service, switch to the MySQL Shell.  The MySQL Shell requires that we start the actual MySQL by logging in.<br />
+	<img  style="width:500px;" src="images/win-mysql-5.png"/>
+	<br />
+	<img  style="width:500px;" src="images/win-mysql-6.png"/>
+	<br />
+	Notice this unusual prompt.  When using the MySQL Shell there are some commands that start with a slash \.  Use this \ option to connect \c or \connect to the MySQL on our computer.<br />
+		<img  style="width:500px;" src="images/win-mysql-7.png"/>
+		<br />
+	Please be careful with the commands ... notice the command first to connect.  Next when using the shell we provide the user name and the server.  The port for SQL is 3306 ...  In this case, my username is "bix" and my local machine (and yours, too) is "localhost".  Replace my username with yours, of course.
+	<pre>\connect bix@localhost:3306</pre>
+	<br />
+	<br />To start the actual MySQL, you need to issue the command <code>\sql</code>.<br />
+	Next you'll be prompted for a password.  Enter your password that you used when you set up your MySQL:
+	<br />
+	<img  style="width:500px;" src="images/win-mysql-8.png"/>
+</p>
+<p>Now that we've started the MySQL Shell and started an instance of MySQL, we'll be able to issue commands directly to MySQL!  Notice the slight change in the prompt from JS to SQL.<br />
+	<img  style="width:500px;" src="images/win-mysql-9.png"/>
+
+
+		<hr />
+		<h2>Stopping MySQL</h2>
+		<blockquote>
+			<p>All users: in your terminal window or MySQL shell, you can exit MySQL by entering <code>exit;</code> to end your MySQL session.</p>
+			<p>Next you can shut down the Service/daemon:
+				 On Mac use the System Preferences to shut down as you did to start.  On Windows, if you're using SQL Shell, you may need to use quit; or exit; and then perhaps \q to exit the shell.  When done with the shell, you can return to the Service panel and  and select MySQL - choose Stop.  All done!
+		</blockquote>
+
+<!-- what you should see ... -->
+		<hr />
+<h2>On the Mac:</h2>
+<p>Before getting to the hands on, you should get a sense of what you'll likely see on your screen.  In these examples, we see what happened step-by-step on a Mac using the Unix terminal window.  First start the daemon using the Systems Preferences Panel (Mac).<br />
+<img style="width: 300px;" src="images/mysql_pref_panel.jpg"/>
+</p>
+<p>The preference panel shows what version of MySQL is on your computer and a few other options.  Here we see 8.0.17.  Notice the red dots: the MySQL daemon is <i>not</i> active.  Click on the Start MySQL Server and in a few moments the dots should turn green, showing you the MySQL daemon is ready.
+	<br />
+<img  style="width:500px;" src="images/mysql_pref_panel_start.jpg" /><br />
+<img  style="width:500px;" src="images/mysql_pref_panel_on.jpg"/>
+</p>
+<hr />
+<p><b>Using the Terminal or Shell Window</b><br /> now that the MySQL is started.  Let's connect to MySQL by logging in:
+	<img  style="width:500px;" src="images/mysql_login.jpg"/><br />
+	In <u>this</u> situation, I chose to start mysql by using <code>cd /usr/local/mysql</code> (the default location where MySQL is installed (on Mac and Unix)).  Next I used a command to start mysql identifying myself as the <b>root</b> user (-u) and asking MySQL to challenge me by asking for my password (-p) <code>./bin/mysql -u root -p</code>.  Notice MySQL responds with asking me for the password.  If I enter it correctly, I see the server version, Oracle trademark and other info and then the mysql prompt: <code>mysql&gt;</code>
+</p>
+<hr />
+<h1>Once we've started MySQL ... let's explore (both Windows and Mac)</h1>
+<p>Once we've started MySQL and logged in, we can ask to see what databases were automatically created and then select a database to use (remember there's only one database at a time).  Via the <code>use</code> command, we select a database to make active; then we can see what tables are in that database, using the <code>show</code> command.<br />
+	<img  style="width:500px;"  src="images/mysql_showdatabases.jpg"/><br />
+</p>
+<p>Before moving on, note that as the database administrator we need certain permissions or rights over all the databases and tables in MySQL.  We need to know exactly what our rights are, too, and who MySQL thinks we are.  When I logged in above, I logged in as "root", a user with superpowers over the database.  That means I can create new users, new databases and tables, and control both by how I grant permissions to others.  As a default logging in as the root user, we should still check ... and we'll see by using the <code>SHOW GRANTS;</code> command.  Notice how MySQL sees as almost as if we were on the Net, by showing our user name as <code>root@localhost</code>. <br />
+	<img  style="width:500px;"  src="images/show_grants.jpg" />
+</p>
+
+<!-- new division -->
+<hr />
+<h2>Creating and Testing our own Database</h2>
+<p>Now that we&rsquo;re in MySQL, let&rsquo;s see what Databases there are.  In this example we see some built-in databases that MySQL itself uses: information_schema, performance_schema, mysql, and sys.  [Don&rsquo;t play with these databases, but we will take a passive look.]   <u>SQL commands end with a semi-colon.  Very important!</u></p>
+<p>Take a look at the <span style="font-family:monospaced;">information_schema</span> and the <span style="font-family:monospaced;">mysql</span> databases.  We won&rsquo;t touch these because these tables are used by MySQL to identify for itself its own resources and our preferences.   Try the following commands once you&rsquo;re at the MySQL prompt (don&rsquo;t use the numbers - just the words, e.g., <code>USE</code>).</p>
+<ol><li><code>SHOW DATABASES;</code></li>
+	<li><code>USE information_schema;</code></li>
+	<li><code>SHOW TABLES;</code></li>
+	<li><code>USE mysql;</code></li>
+	<li><code>SHOW TABLES;</code></li>
+	<li><code>exit;</code></li>
+</ol>
+<p>SQL doesn't care about capitalization.  The convention is to use ALL CAPS for SQL commands; use lower-case for our specific databases, tables, field names, etc.</p>
+
+<div>
+	<h3>Checking our Rights</h3>
+	<p>One of the most common hassles is that we might not have the rights over our MySQL and databases that we think we have.    Once you have your SQL running, let&rsquo;s see what rights are there as a default by entering the command <code>SHOW GRANTS</code>.  Notice we see grants for "root@localhost", "`root`@`localhost` WITH GRANT OPTION, and GRANT PROXY ON &rsquo;&rsquo;@&rsquo;&rsquo; TO &rsquo;root&rsquo;@localhost&rsquo; WITH GRANT OPTION.   Notice the many options: GRANT SELECT, INSERT, UPDATE, DELETE ... and so on.  This is good - it means we, as we&rsquo;re logged in as root, have complete permission to create databases and tables, insert and delete data from those tables, update the structure of our databases and tables, and add data ("insert"), as well as create other users, backup the database, and more.   Notice the @localhost.  This is not unlike an email address - root@localhost - because we&rsquo;re logged in as user "root" and acting as if we were actually on the Internet, the "localhost" allows us to develop applications that run on our computer <i>and</i> later run on the Net.  localhost is actually a "unix pipe"; but we&rsquo;ll see we can replace this with "127.0.0.1" which is a special IP number/URL that acts just like we&rsquo;re live on the Net but never actually going on the Net.</p>
+	<p>Say we have lots of users with permission to use our database.  We could ask MySQL to report on the privileges granted to them by their name.  Remember, different OS and versions of MySQL can act differently than we expect.</p>
+
+<hr />
+<blockquote>
+	Get Ready:  For this hands-on activity, we're going to 
+		<ol>
+			<li>create a database</li>
+			<li>select that database for use</li>
+			<li>create a table in that database</li>
+			<li>create a use with permission to use the database (and its table), along with a user name</li>
+			<li>then grant permissions to that user</li>
+			<li>confirm permissions with the "FLUSH" command</li>
+			<li>insert some data into that table</li>
+			<li>select some data from that table</li>
+			<li>delete ("drop") the table</li>
+		</ol>
+</blockquote>
+<hr />
+
+
+	<h1>Practice Test of our Database Permissions</h1>
+	<p>Now we'll jump right in and practice some fundamentals of MySQL access.</p>
+	<ol>
+		<li>Start your MySQL daemon.  When it is ready, switch to your terminal window (Mac) or [windows]</li>
+		<li>Start the MySQL program for you - but first write down to be sure and for a record:
+			<ul><li>Your SQL user name _____________________</li>
+				<li>Your SQL password _____________________</li>
+				<li>Start MySQL using the instructions for your operating system, detailed above. </li>
+				</ul>
+			</li>
+		</ol>
+	<p>Note: I recommend strongly that you type your commands in a text editor first, or better write them down on paper, and review them <u>very</u> carefully.  Note that every <code>(</code> and <code>)</code> must be balanced, as must quotation marks; commands end with a semi-colon ; and missing anything like this will cause an error.  If you get stuck on the command line, it's likely because you're missing a quote  or ) so review the command if you can and enter ' or ) and that will cause SQL to reject and end the query.  You'll be returned to the SQL prompt, that looks like <code>mysql&gt;</code>.  Here's an image of my testing my commans first in a text editor ... Note that we can <b>cut-and-paste</b> commands from our text editor and paste them into the SQL prompt.</p>
+	
+	<p>First notice I made a mistake!  If you do, you'll see an error message.  Just try again:
+		<img  style="width:500px;" src="images/mysql-first-login-demo.jpg"/>
+	</p>
+	<div class="mycode">CREATE DATABASE <span class="mycodeVar">contacts;</span></div>
+	<p>Now we have created the database.  We need to select it as the active work area:</p>
+	<div class="mycode">USE <span class="mycodeVar">contacts;</span></div>
+	<p>Let&rsquo;s create a <b>table</b> just for practice. [Pay close attention to the syntax, spacing, commas ....] </p>
+	<div class="mycode">CREATE TABLE 
+		<span class="mycodeVar">people (<br />
+id int NOT NULL AUTO_INCREMENT,<br />
+last_name VARCHAR(25),<br />
+first_name VARCHAR(20) NOT NULL,<br />
+relationship VARCHAR(15),<br />
+email VARCHAR(30),<br />
+phone VARCHAR(12),<br />
+notes TEXT(500),<br />
+other VARCHAR(60),<br />
+PRIMARY KEY(id)<br />
+);<br />
+</code>
+		</span>
+	</div>
+	<p>Now let&rsquo;s create a <b>user</b> for our database.   Be sure to keep record of the user and this user&rsquo;s password!  I&rsquo;m using <code>bix</code> and <code>thecat</code> as password.  <b>Replace the demo username and password with your own!</b>  You&rsquo;re welcome and encouraged to create your own.</p>
+	<div class="mycode">CREATE USER <span class="mycodeVar">bix@localhost</span><br />
+		&nbsp;&nbsp;&nbsp;&nbsp;IDENTIFIED BY <span class="mycodeVar">&rsquo;thecat&rsquo;</span>;
+	</div>
+	<p>Now we want to confirm that our user exists.  By default new users have no privileges.  So we have to add them.
+	</p>
+	<div class="mycode">SHOW GRANTS<br />FOR 
+		<span class="mycodeVar">bix@localhost;</span><br />
+	</div>
+	<p>
+		For practice, let&rsquo;s give this end-user complete rights (using the * character for "all") over our new database ... </p>
+	<div class="mycode">GRANT ALL <br />
+		ON <span class="mycodeVar">contacts.*</span><br />
+		TO <span class="mycodeVar">bix@localhost;</span>
+	</div>
+	<br />
+	<img style="padding-left: 20px; width:300px;" src="images/mysql-first-create-user-1.jpg"/>
+	<br />
+	<div class="mycode">FLUSH privileges;</div>
+<div>
+	<p> </p>
+<div>
+	<h2>In our next reading we'll insert into and select data from our test database.</h2>
+</div>
+	
+<hr />
+<!-- INTERNATIONALIZATION -->
+<div id="i18">
+	<h2>A note about internationalization for our database system</h2>
+	<p>If you're completed the Introduction to Informatics course, you're aware of the differences of input methods and character sets.  For example, if you're using a computer in the US you're probably inputting data using WIN-1285 or a default Mac encoding scheme.  What this means is when we press a keyboard key we generate a code for each letter.  In many languages, we can represent all these letters using 8-bits.  So a string of letters "cat" would be 8 x 3 bits or 3 bytes (24 bits).  But what about other languages like Chinese?  We need 16-bits to represent, say, "dragon" &#128009;.  If you're using windows you need a special "Escape" sequence (Alt +1F409); in Python there's an escape sequence (u"\U0001F409"); in binary it'd be 11110000:10011111:10010000:10001001.  Wow, so many ways to do the same thing!  So, we are going to think always of using the international standard for all letters/glyphs/characters, called Unicode.  Check out the <a href="https://unicode.org" target="new">Unicode homepage and code charts</a> and we'll prefer to use the computing implementation of this, called UTF-8  (Unicode Transformation Format - 8 bits).  In short, we want to be sure that data entered by the user, be it "é" or "h" or "明" or "ẻ" will be stored correctly.  We must, then, override MySQL default encoding of "Latin-1" to set it to "utf-8" or "ucs2".</p>
+	<p>We can convert a database to UTF-8 after converting it, too.  But for now we'll focus on using UTF-8 from the start.  
+		You can see what character sets your version of MySQL supports by entering the command <div class="mycode">SHOW CHARACTER SET;</div></p>
+	<p>The command to create a database to support all the languages and to have that database sort correctly, we must do a rather complicated-looking command.  <br />
+		<code>CREATE DATABASE mydatabase CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;</code>
+<br />The above command tells MySQL to use the utf8 character set and allow us to sort (collate) data in the correct way for the various language.  For a much more detailed and authoritative discussion see the <a href="https://dev.mysql.com/doc/refman/8.0/en/charset-unicode-utf8mb4.html" target="new">MySQL 10.9.1 manual page</a>.
+</div>
+
+
+<blockquote>
+<div class="recap"><h2>Recap:</h2><p>For this lesson you should confirm you can <ol><li>start your connection to MySQL</li><li>check your user rights</li><li>show databases</li><li>select (use) a database as the active work area</li><li>create a user and allow certain rights</li><li>understand the purpose of utf-8 and internationalization in MySQL</li><li>understand the concept of data decomposition</li><li>stop MySQL</li></ol>
+</div>
+</blockquote>
+<!-- ------------------- end -------------------- -->
+<hr />
+
+</body>
+</html>

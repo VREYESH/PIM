@@ -1,0 +1,118 @@
+<ead> 
+	<eadheader audience="internal" countryencoding="iso3166-1" 
+	dateencoding="iso8601" langencoding="iso639-2"  
+	repositoryencoding="iso15511"> 
+	<eadid countrycode="us" mainagencycode=" MainAgency Code here ">
+	eadDemo1.ead
+	</eadid>
+	<filedesc>
+			<titlestmt> 
+				<titleproper>The Title Proper or Person
+					</titleproper> 
+				<subtitle>An inventory of Subtitle is here</subtitle> 
+				<author>Finding aid prepared by Author, Author!</author>
+				<sponsor>Sponsored by</sponsor>
+		</titlestmt> 
+		<publicationstmt>
+				<publisher encodinganalog="Publisher">Published by Fifi</publlisher>
+				<address>
+						<addressline>5 Smith Street, Timbuktu</addressline> 
+				</address> 
+		</publicationstmt>
+		<seriesstmt>
+				<p>BoredKitty Collection</p>
+		</seriesstmt>
+	</filedesc> 
+	<profiledesc>
+			<creation>Finding aid encoded by Lars the Encoder
+					<date>generatedOnDate</date> 
+			</creation>
+			<langusage>Finding aid written in
+		<language langcode=' eng '>English</language>
+		<language langcode=' fre '>French</language>
+		<language langcode=' spa '>Spanish</language>
+		</langusage> 
+	</profiledesc>
+	<revisiondesc>
+			<change>
+					<date></date>
+					<item>[REASON FOR CHANGE]</item>
+			</change>
+	</revisiondesc>
+	</eadheader> 
+	<archdesc>
+	<did>
+			<unitid></unitid> 
+			<repository></repository>
+			<origination> 
+					<corpnane> </corpname> 
+			</origination> 
+			<unittitle> </unittitle>
+			<unitdate> </unitdate>
+			<langmaterial> 
+					<language>
+					</language> 
+			</langmaterial> 
+			<abstract>[NOTES]</abstract>
+			<physdesc>Webpage</physdesc>
+			<physloc>Physical Location of URL </physloc> 
+	</did>
+	<descgrp type="admininfo"> 
+			<prefercite>Cite me this way please</prefercite> 
+			<acqinfo></acqinfo>
+	</descgrp> 
+	<dsc>
+	<c01></c01> 
+	<did>
+			<physloc>[FILENAME]</physloc> 
+			<container></container> 
+			<unittitle> </unittitle> 
+			<unitdate> </unitdate> 
+			<physdesc> </physdesc>
+	</did> 
+	</dsc> 
+	</archdesc>
+	<controlaccess>
+	<subject>
+		<part>Bluebeard</part>
+		<part>Esek Hopkins</part>
+		<part>Sloop Gaspée</part>
+		<part>Barque</part>
+		<part>Brigantine</part>
+		<part>Lobster Boat</part>
+		<part>Man of war</part>
+		<part>Schooner</part>
+		<part>Shallop</part>
+		<part>Whaler</part>
+		<part>Fisherman</part>
+		<part>Lobsterman</part>
+	</subject>
+	</controlaccess>
+	<control>
+			<recordid>[RECNO]</recordid>
+			<filedesc>
+					<titlestmt>
+						<titleproper>[ some thing tba ]</titleproper>
+				</titlestmt>
+				<editionstmt>
+						<edition>1st</edition>
+					<publicationstmt>
+							<publisher>Published by Fifi</publisher>
+					<publicationstmt>
+		</filedesc>
+		<notestmt>
+		<controlnote>
+				<p>Contact information:
+						<ref show="new" actuate="onrequest" href=" Lars URL goes here.">
+			 ' Lars URL goes here.'
+						</ref>
+				</p>
+		</controlnote>
+		<controlnote>
+				<p>Catalog Record:
+						<ref href="" actuate="onrequest" 
+						linktitle="MARC record for collection"></ref>
+				</p>
+			</controlnote>
+		</notestmt>
+</ead>

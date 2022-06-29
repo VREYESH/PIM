@@ -1,0 +1,148 @@
+START_GROUP
+Topics and Scenes:
+Animals
+Beach
+Comics
+Entertainment
+Flags
+Floral
+Forest
+Industrial
+Landscape
+Other_Theme
+Patriotic
+Portrait
+Rural
+Satire
+Travel
+Urban
+War
+Other_Scene
+END_GROUP
+START_GROUP
+Main Themes:
+Applied Arts
+Architecture
+Book Arts
+Calligraphy
+Ceramics
+Conceptual Art
+Digital Art
+Drawing
+Music
+Painting
+Paper Marbling
+Photography
+Religious
+Sculpture
+Typography
+Video Games
+END_GROUP
+START_GROUP
+Movements:
+Abstract Exp
+Art Deco
+Art Nouveau
+Baroque or Rococo
+Bauhaus
+Contemporary
+Cubism
+Dadaism
+Expressionism
+Futurism
+Gothic
+Impressionism
+Mannerismm
+Minimalism
+Naturalism
+Neoclassicism
+New Objectivity
+Photorealism
+Pop Art and Arte Povera
+Post-Impressionism
+Pre-Historic
+Pre-Raphaelite
+Precisionism
+Realism
+Reniassance
+Romanesque
+Romanticism
+Surrealism
+Symbolism
+END_GROUP
+START_GROUP
+Regional:
+Arabic
+Asian
+British
+Chinese
+European
+French
+Italian
+Japanese
+Korean
+Local
+North American
+South American
+US
+END_GROUP
+START_GROUP
+Media and Techniques:
+Acrylic
+Aerosol
+Aquatint
+Black and White
+Block print
+Canvas
+Card stock
+Computer Graphics
+Computer Printing
+Embossing
+Engraving or Etching
+Fabric
+Fresco
+Gesso
+Glass
+Gouache
+Human body
+Ink
+Inkjet printer or Giclée
+Intaglio
+Letterpress
+Line drawing
+Lithography
+Metal
+Mezzotint
+Monotype
+Offset printing
+Oil paint
+Paper
+Plaster
+Poster
+Printing press
+Relief
+Scratchboard
+Seriagraph
+Stone
+Sumi-e
+Tempera or poster paint
+Ukiyo-e or Moku hanga
+Vellum
+Video
+Watercolor
+Wood
+Wood engraving
+Woodcut
+END_GROUP
+START_GROUP
+Affective/Sentiment:
+Angry
+Bummer
+Calm
+Happy
+Inspired
+Negative
+Refreshed
+Sad
+Other_Sentiment
+END_GROUP

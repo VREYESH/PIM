@@ -1,0 +1,21 @@
+<!-- htmlFooter8.txt -->
+<div style="height:125px;"><hr /></div>
+
+<style>
+a { border-bottom: 1px dotted #000;
+    text-decoration: none;
+	color: inherit;
+}
+</style>
+<footer>
+  <p>A tailorable personal-information-management cataloguer program.  
+  	<a href="aboutTheProgram.html" 
+  	target="new">Read about the project</a><br>
+  	<a href="mailto:gb@bix.digital">gb@bix.digital</a>.  <span id="datetimestamp"></span>
+  </p>
+</footer>
+<script>
+	document.getElementById("datetimestamp").innerHTML = "Page generated on "+new Date();
+</script>
+</body>
+</html>
